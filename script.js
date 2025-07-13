@@ -7,7 +7,7 @@ document.getElementById("registroForm").addEventListener("submit", async functio
   const url = "https://script.google.com/macros/s/AKfycbwDeQUw0cTLTU5KWriX9iOvTi_8R0dRBtzoJARt1i67eF8RinsaJ-vzkb78WhvQuqIE/exec"; 
 
   try {
-    const res = await fetch(url, {
+    const res = await fetch("https://script.google.com/macros/s/AKfycbwDeQUw0cTLTU5KWriX9iOvTi_8R0dRBtzoJARt1i67eF8RinsaJ-vzkb78WhvQuqIE/exec", {
       method: "POST",
       body: new URLSearchParams(datos),
     });
