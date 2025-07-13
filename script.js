@@ -4,7 +4,7 @@ document.getElementById("registroForm").addEventListener("submit", async functio
   const form = e.target;
   const datos = new FormData(form);
 
-  const url = "https://script.google.com/macros/s/AKfycby111B.../exec"; // ← Cambialo por tu URL real
+  const url = "https://script.google.com/macros/s/AKfycbwDeQUw0cTLTU5KWriX9iOvTi_8R0dRBtzoJARt1i67eF8RinsaJ-vzkb78WhvQuqIE/exec"; 
 
   try {
     const res = await fetch(url, {
