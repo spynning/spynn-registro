@@ -1,35 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Spynn | Registro</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-  <div class="container">
+  <div class="contenedor-formularios">
     <h1>Bienvenid@ a Spynn</h1>
+    <p>Si ya estás registrad@, ingresá tu cédula:</p>
+    <input type="text" id="cedula-ingreso" placeholder="Ej: 112590001">
+    <button onclick="verificarIngreso()">Ingresar</button>
 
-    <div id="login-section">
-      <p>Si ya estás registrad@, ingresá tu cédula:</p>
-      <input type="text" id="cedula" placeholder="Ej: 112590001" />
-      <button onclick="verificarCedula()">Ingresar</button>
-      <p class="link" onclick="mostrarRegistro()">¿No estás registrad@? Registrate aquí</p>
-    </div>
-
-    <div id="registro-section" style="display: none;">
-      <p>Registro de nuevo usuario:</p>
-      <input type="text" id="nombre" placeholder="Nombre completo" />
-      <input type="text" id="nuevaCedula" placeholder="Cédula" />
-      <select id="tipoPlan">
-        <option value="">Seleccioná tu plan</option>
-        <option value="mensual">Mensual</option>
-        <option value="8 clases">8 clases</option>
-        <option value="12 clases">12 clases</option>
-      </select>
-      <button onclick="registrarUsuario()">Registrarme</button>
-      <p class="link" onclick="mostrarLogin()">Volver al inicio</p>
-    </div>
+    <p>¿No estás registrad@? 
+      <a href="registro.html" style="color: #ff42a1; font-weight: bold;">Regístrate aquí</a>
+    </p>
   </div>
 
   <script src="script.js"></script>
