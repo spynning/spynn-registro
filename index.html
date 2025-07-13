@@ -1,22 +1,26 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Spynn | Registro</title>
-  <link rel="stylesheet" href="estilo.css">
-</head>
-<body>
-  <div class="contenedor-formularios">
-    <h1>Bienvenid@ a Spynn</h1>
-    <p>Si ya estás registrad@, ingresá tu cédula:</p>
-    <input type="text" id="cedula-ingreso" placeholder="Ej: 112590001">
-    <button onclick="verificarIngreso()">Ingresar</button>
+document.getElementById("registroForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
 
-    <p>¿No estás registrad@? 
-      <a href="registro.html" style="color: #ff42a1; font-weight: bold;">Regístrate aquí</a>
-    </p>
-  </div>
+  const form = e.target;
+  const formData = new FormData(form);
 
-  <script src="script.js"></script>
-</body>
-</html>
+  try {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbyIlLb3_5CgHPLQKLXb2aYGL8aYcIguXrrX9vv0kWeKr-1MTL5qUHH9wBoYeb_U4J0Z/exec", {
+      method: 'POST',
+      body: formData
+    });
+
+    const result = await response.json();
+
+    if (result.status === "success") {
+      alert("✅ Registro exitoso. ¡Ya podés reservar tus clases!");
+      form.reset();
+    } else {
+      alert("❌ Hubo un problema al registrar. Intentá de nuevo.");
+    }
+
+  } catch (error) {
+    console.error("Error:", error);
+    alert("⚠️ Error de conexión. Revisá tu internet o intentá más tarde.");
+  }
+});
