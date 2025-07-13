@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function () {
     const cedulaInput = document.getElementById('cedula');
     const ingresarBtn = document.getElementById('ingresar');
@@ -10,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        const url = `https://docs.google.com/spreadsheets/d/1eyR28yjZTln-yZ5kbsr-XCMcV5D9arCN8fVDK4mMFjA/gviz/tq?tqx=out:json&sheet=Registro`;
+        const url = https://docs.google.com/spreadsheets/d/1eyR28yjZTln-yZ5kbsr-XCMcV5D9arCN8fVDK4mMFjA/gviz/tq?tqx=out:json&sheet=Registro;
 
         fetch(url)
             .then(response => response.text())
