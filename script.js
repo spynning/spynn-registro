@@ -1,26 +1,44 @@
-document.getElementById("registroForm").addEventListener("submit", async function (e) {
-  e.preventDefault();
+const form = document.getElementById("registroForm");
+const mensaje = document.getElementById("mensaje");
 
-  const form = e.target;
-  const formData = new FormData(form);
+// 🔗 URL de tu Apps Script desplegado
+const scriptURL = "https://script.google.com/macros/s/AKfycbw3ZTU7FgJ_bP1wfPgyEzio30gInFgg9PYXqRk4p0FOG WWEH2Im2d2_TEbFgB_qeLM/exec".replace(/\s/g, "");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  
+  const nombre = document.getElementById("nombre").value;
+  const cedula = document.getElementById("cedula").value;
+  const plan = document.getElementById("plan").value;
+
+  mensaje.textContent = "Enviando...";
+  mensaje.className = "";
 
   try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbyIlLb3_5CgHPLQKLXb2aYGL8aYcIguXrrX9vv0kWeKr-1MTL5qUHH9wBoYeb_U4J0Z/exec", {
-      method: 'POST',
-      body: formData
+    const res = await fetch(scriptURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({ nombre, cedula, plan }),
     });
 
-    const result = await response.json();
-
-    if (result.status === "success") {
-      alert("✅ Registro exitoso. ¡Ya podés reservar tus clases!");
+    const texto = await res.text();
+    
+    if (texto === "EXISTE") {
+      mensaje.textContent = "⚠️ Esta cédula ya está registrada.";
+      mensaje.className = "error";
+    } else if (texto === "REGISTRADO") {
+      mensaje.textContent = "✅ Registro exitoso. ¡Ya podés reservar tus clases!";
+      mensaje.className = "ok";
       form.reset();
     } else {
-      alert("❌ Hubo un problema al registrar. Intentá de nuevo.");
+      mensaje.textContent = "❌ Error inesperado: " + texto;
+      mensaje.className = "error";
     }
-
   } catch (error) {
-    console.error("Error:", error);
-    alert("⚠️ Error de conexión. Revisá tu internet o intentá más tarde.");
+    mensaje.textContent = "❌ Error de conexión. Revisá tu internet o el enlace del sistema.";
+    mensaje.className = "error";
+    console.error(error);
   }
 });
