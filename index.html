@@ -4,24 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Registro Spynn</title>
-  <link rel="stylesheet" href="estilo.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Formulario de Registro Spynn 💪</h1>
+    <h1>Registro Spynn</h1>
     <form id="registroForm">
-      <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required />
-      <input type="text" id="cedula" name="cedula" placeholder="Cédula" required />
-      <select id="plan" name="plan" required>
-        <option value="">Seleccioná tu plan</option>
+      <input type="text" name="nombre" placeholder="Nombre completo" required />
+      <input type="text" name="cedula" placeholder="Cédula" required />
+      <select name="plan" required>
+        <option value="">Seleccioná un plan</option>
         <option value="Mensualidad 1x">Mensualidad 1x</option>
         <option value="Mensualidad 2x">Mensualidad 2x</option>
         <option value="Mensualidad 3x">Mensualidad 3x</option>
       </select>
       <button type="submit">Registrar</button>
-      <p id="mensaje"></p>
     </form>
+    <p id="mensaje"></p>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
