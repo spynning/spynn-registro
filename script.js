@@ -4,7 +4,7 @@ document.getElementById("registroForm").addEventListener("submit", async functio
   const form = e.target;
   const datos = new FormData(form);
 
-  const url = "https://script.google.com/macros/s/AKfycbwDeQUw0cTLTU5KWriX9iOvTi_8R0dRBtzoJARt1i67eF8RinsaJ-vzkb78WhvQuqIE/exec"; 
+  const url = "https://script.google.com/macros/s/AKfycbyupGD4y4r8QCs8rmBg2nloAFuF7B30WgWeYnFhGiRGfzDc96Z6l9IRKYWUpiNzAa3X/exec"; 
 
   try {
     const res = await fetch("https://script.google.com/macros/s/AKfycbwDeQUw0cTLTU5KWriX9iOvTi_8R0dRBtzoJARt1i67eF8RinsaJ-vzkb78WhvQuqIE/exec", {
